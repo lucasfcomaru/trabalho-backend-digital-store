@@ -1,3 +1,5 @@
+require('dotenv').config();
+const MD5 = require('crypto-js/md5');
 const UserModel = require("../models/UserModel");
 
 class UserController {
@@ -23,6 +25,8 @@ class UserController {
   async criar(request, response) {
     try {
       let body = request.body;
+      const password = MD5(body.password, process.env.SECRET_KEY).toString();
+      body.password = password;
       await UserModel.create(body);
       response.status(201).json({
         message: "Usuário cadastrado com sucesso.",

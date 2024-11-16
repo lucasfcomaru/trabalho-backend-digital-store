@@ -1,5 +1,6 @@
 const { DataTypes, Model } = require("sequelize");
 const connection = require("../config/connection");
+const ImagesProductsModel = require("./ImagesProductsModel");
 
 class ProductsModel extends Model {}
 
@@ -42,7 +43,7 @@ ProductsModel.init(
     timestamps: true,
     sequelize: connection,
     modelName: "ProductsModel",
-  }
+  }  
 );
 
 module.exports = ProductsModel;

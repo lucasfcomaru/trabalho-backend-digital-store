@@ -17,10 +17,6 @@ CategoriesModel.init(
       type: DataTypes.BOOLEAN,
       defaultValue: false,
     },
-    password: {
-      type: DataTypes.STRING(50),
-      allowNull: false,
-    },
   },
   {
     tableName: "categories",
